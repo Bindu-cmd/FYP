@@ -1,0 +1,46 @@
+*{
+    list-style: none; 
+    text-decoration: none;
+    box-sizing: border-box;
+
+
+}
+.categories{
+    z-index: 1;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.categories .ul_list li{
+    list-style: none;
+    padding: 5px 10px;
+    
+
+
+}
+.categories .ul_list li:hover{
+    background-color:rgba(117, 114, 114, 0.438);
+}
+.categories .ul_list{
+    display: none;
+    padding-right: 30px;
+    position: absolute;
+    background-color: black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.categories:hover ul{
+    display: block;
+    
+   
+}
+
+.categories .ul_list li a{
+    color: white;
+    text-decoration: none;
+}

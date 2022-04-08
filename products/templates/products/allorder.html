@@ -1,0 +1,81 @@
+{% extends 'admins/layout.html' %}
+{% load static %}
+
+{% block title %}
+
+<title>Admins - All Orders</title>
+<!-- {% include 'products/header.html'%} -->
+
+{% endblock %}
+
+{% block main_content %}
+    <div class ="container">
+        <div class="d-flex justify-content-center">
+            <div class="col-md-10">
+                {% for msg in messages %}
+         {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+         <div class="alert alert-success">
+             {{ msg }}
+         </div>
+         {% endif %}
+
+         {% endfor %}
+
+         <table class="table table-bordered table-striped table-success">
+            <thread>
+                <tr>
+                    <th> Items Name</th>
+                    <th> Unit Price</th>
+                    <th> Quantity</th>
+                    <th> Total Price</th>
+                    <th> Product Image</th>
+                    <th> Ordered Date</th>
+                    <th> Location</th>
+                    <th> Contact No</th>
+                    <th> Status</th>
+                    <th>Payment Status</th>
+                    <th>Action</th>
+
+
+
+                </tr>
+
+            </thread>
+            <tbody>
+                {% for i in items %}
+
+                <tr>
+                    <td> {{ i.product.product_name }} </td>
+                    <td> {{ i.product.product_price }} </td>
+                    <td> {{i.quantity}}</td>
+                    <td> {{i.total_price}}</td>
+                    <td> <img src="/{{i.product.image}}" alt="" width="150"></td>
+                    <td>{{i.created_date }}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.contact_no}}</td>
+                    <td> {{i.status}} </td>
+                    <td>{{i.payment_status}}</td>
+                    <td>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-pen-square"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+                
+            </div>
+        </div>
+    </div>
+    <ul> 
+      
+
+    </ul>
+   
+    
+   {% endblock %}
+
+    

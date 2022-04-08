@@ -1,0 +1,79 @@
+{% extends 'admins/layout.html' %}
+{% load static %}
+
+{% block title %}
+
+<title>Admins - Show PDF_Books</title>
+<!-- {% include 'products/header.html'%} -->
+
+{% endblock %}
+
+{% block main_content %}
+    <div class ="container">
+        <div class="d-flex justify-content-center">
+            <div class="col-md-11">
+                {% for msg in messages %}
+         {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+         <div class="alert alert-success">
+             {{ msg }}
+         </div>
+         {% endif %}
+
+         {% endfor %}
+                <table class ="table table-bordered table-striped table-success">
+                    <thread>
+                        <tr>
+                            <th>Book Name</th>
+                            <th> Author Name</th>
+                            <th> Pages</th> 
+                            <th> Language</th>
+                            <th class="col-md-3">Description </th>
+                            <th> Book Image</th>
+                            <th> Action </th>
+
+                            
+
+                        </tr>
+                           
+                    </thread>
+                    <tbody>
+                        {% for book in viewpdf %}
+                        
+                        
+                        <tr>
+                            <td> {{ book.bookname }} </td>
+                            <td> {{ book.authorname}} </td>
+                            <td> {{ book.pages}} </td>
+                            <td> {{ book.Language}}</td>
+                            <td> {{ book.description}}</td>
+
+                            <td> <img src="/{{book.cover_image}}" alt="" width="150"></td>
+                            <td> 
+                                <a href="" class="btn btn-primary">
+                                    <i class="fas fa-pen-square"></i>
+                                </a>
+                                &nbsp;&nbsp;
+                                <a href="" class="btn btn-danger" onclick="return confirm('Are You Sure Want To Delete This Product?')">
+                                
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                
+                        {% endfor %}
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <ul> 
+      
+
+    </ul>
+   
+    
+   {% endblock %}
+
+    

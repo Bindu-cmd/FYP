@@ -1,0 +1,122 @@
+<style>
+    .carousel-item img{
+        height: 600px;
+        background-size: 100% 50px;
+        background-repeat: no-repeat;
+        background-position: cover cover;
+        
+        
+    }
+    
+    .card-img{
+        overflow: hidden;  
+    }
+    .card-img img{
+      height:350px;
+    }
+    
+    .card-img:hover img{
+        transform:scale(1.5);
+    }
+    .card-img img{
+        transition: all 2s;
+
+    }
+    /* .form label{
+      display: none;
+    } */
+    /* form{
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+   
+
+    }*/
+    .maindiv{
+      display: flex;
+      justify-content: space-between;
+    } 
+
+
+    /* form>input{
+      padding: 0.25rem 1rem;
+      border-radius: 1rem 0 0 1 rem;
+      border: none;
+      background-color: whitesmoke;
+      font-family: sans-serif;
+      background-color:whitesmoke;
+
+    } */
+  
+
+    
+</style>
+
+
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Book-Recommendation-Productpage</title>
+{% endblock %}
+
+
+{% block main_content %}
+
+
+<!-- card start -->
+<div class="container">
+  <div class="d-flex my-3">
+    <div class="col-md-4">
+      <img src="/{{e_book.cover_image}}" alt="{{e_book.bookname}}">
+
+      </div>
+
+    
+    <div class="offset-md-2 col-md-6 shadow text-center">
+      <div style="justify-content:center;" class="maindiv">
+
+      
+      
+      <div style="float: right;" class="d-flex1">
+      <h2 class="text-center">{{e_book.bookname}}</h2>
+      <p class="text-center">{{e_book.authorname}}</p>
+      <p class="text-center ">
+        {{e_book.description}} </p>
+      <p class="text-center">Category:{{e_book.category}}</p>
+      <hr>
+    
+
+     
+        </div>
+        
+
+      
+
+        <!-- </div>
+        <div class="col-md-4">
+          <center><a href=""class="btn btn-success">Buy Now</a></center>
+          
+
+      </div> -->
+    
+      </div>
+      
+      <div style="justify-content: center;" class="readme">
+        <a style="justify-content: center;" href="/{{e_book.pdf_file}}" target="_pdf" class="btn btn-success">Read Now</a>
+      </div>
+    
+      </div>
+      
+
+    </div>
+   
+
+</div>
+
+
+<!-- card end -->
+
+
+ 
+
+{% endblock %}

@@ -1,0 +1,119 @@
+<style>
+  .carousel-item img{
+      height: 600px;
+      background-size: 100% 50px;
+      background-repeat: no-repeat;
+      background-position: cover cover;
+      
+      
+  }
+  .card{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  .col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+   }
+   .row{
+    margin-left:25px;
+    margin-right:25px;
+   }
+  
+  .card , .col{
+    width:350px
+  }
+  .card-img{
+      overflow: hidden;  
+  }
+  .card-img img{
+    height:350px;
+    width:350px;
+    
+  }
+  .card-img:hover img{
+      transform:scale(1.5);
+  }
+  .card-img img{
+      transition: all 2s;
+
+  }
+
+  
+</style>
+
+
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Book-Recommendation-Productpage</title>
+{% endblock %}
+
+
+{% block main_content %}
+
+
+<!-- card start -->
+<div class="container-fluid">
+    <form class="form" method="get">
+        {{product_filter.form}}
+
+        <button class="btn btn-success" type="submit">
+            <i class="fas fa-search fs-2 text-white"></i>
+        
+        </button>
+
+    </form>
+    {% for msg in messages %}
+    
+         {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+         <div class="alert alert-success">
+             {{ msg }}
+         </div>
+         
+         {% endif %}
+         {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+         <div class="alert alert-danger">
+             {{ msg }}
+         </div>
+         
+         {% endif %}
+
+
+         {% endfor %}
+  <h1 class="text-center mt-5">All Products</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        
+      {% for product in products %}
+        <div class="col">
+          <div class="card shadow-lg">
+              <div class="card-img">
+            <img src="/{{product.image}}" class="card-img-top" alt="{{product.product_name}}">
+        </div>
+            <div class="card-body">
+              <h5 class="card-title">{{product.product_name}}</h5>
+              <h5 class="card-title">Rs.{{product.product_price}}</h5>
+              <a href="/productdetails/{{product.id}}" class="btn btn-success">View Details
+
+              </a>
+              
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+      
+      </div>
+</div>
+
+<!-- card end -->
+
+
+ 
+
+{% endblock %}
