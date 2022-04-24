@@ -9,4 +9,11 @@ from . models import *
 admin.site.register(Product)
 admin.site.register(Category)
 admin.site.register(BookNow)
-admin.site.register(Language)
+
+
+class CustomRating(admin.ModelAdmin):
+    list_display=('user','places','rating')
+
+admin.site.register(Myrating,CustomRating),
+
+

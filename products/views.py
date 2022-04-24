@@ -9,6 +9,8 @@ from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from users.auth import admin_only
+from django.http import Http404
+from django.shortcuts import get_object_or_404
 
 
 
@@ -241,7 +243,7 @@ def esewa_verify(request):
     }
     resp = req.post(url, d)
     root=ET.fromstring(resp.content)
-    status=root[0].text.strip() #read garna lai
+    status=root[0].text.strip() 
     if status=='Success':
         order_id=o_id.split("_")[0]  # split vaneko underscore bata xuttako 
         order=Order.objects.get(id=order_id)
@@ -281,13 +283,14 @@ def all_order(request):
 def Book_Pdf(request):
     if request.method == 'POST':
         form=AddPdfForm(request.POST,request.FILES)
+        print(request.FILES)
         if form.is_valid():
             form.save()
             messages.add_message(request,messages.SUCCESS,'Book Added Sucessfully')
             return redirect('/products/addpdf')
         else:
-            messages.add_message(request,messages.ERROR,'Unable to make Payment')
-            return redirect('products/addpdf.html',{
+            messages.add_message(request,messages.ERROR,'Unable to add pdf')
+            return redirect('/products/addpdf',{
                 'form':form
 
             })
@@ -308,4 +311,27 @@ def View_Pdf(request):
     }
     return render(request,'products/viewpdf.html',context)
 
-    
+
+
+def rating(request, place_id):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    if not request.user.is_active:
+        raise Http404
+    product = get_object_or_404(Product, id=place_id)
+    product.save()
+   
+
+    # for rating
+    if request.method == "POST":
+        rate = request.POST['rating']
+        ratingObject = Myrating()
+        ratingObject.user = request.user
+        ratingObject.places = product
+        ratingObject.rating = rate
+        ratingObject.save()
+
+        return redirect("index")
+    return render(request, 'products/rating.html', {'place': product})
+
+  

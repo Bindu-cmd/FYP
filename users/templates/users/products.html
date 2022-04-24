@@ -60,15 +60,7 @@
 
 <!-- card start -->
 <div class="container-fluid">
-    <form class="form" method="get">
-        {{product_filter.form}}
-
-        <button class="btn btn-success" type="submit">
-            <i class="fas fa-search fs-2 text-white"></i>
-        
-        </button>
-
-    </form>
+   
     {% for msg in messages %}
     
          {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}

@@ -27,6 +27,10 @@
     .nav-link {
       color: #ffff !important;
     }
+    div>a,button{
+      margin-left: 0.5rem;
+
+    }
 
     .container-section {
       height: 350px;
@@ -37,9 +41,9 @@
 </head>
 
 <body>
-  <header class="p-3 bg-dark text-white">
+  <header class="p-3 bg-dark text-white ">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none me-4">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxMSy3BBy_JriVriX8JdnU3jvKQ_OiaCL38w&usqp=CAU"
             alt="" class="img-fluid" width="50">
@@ -51,21 +55,21 @@
           <li class="categories"><a href="#" class="nav-link px-2 ">Categories</a>
             
             <ul class="ul_list">
-              {% for cat in category %}
-              <li><a href="">{{cat.category_name}}</a></li>
+              {% for cat in categories %}
+              <li><a href="category_to_post/{{cat.id}}">{{cat.category_name}}</a></li>
               {% endfor %}
             </ul>
          
           </li>
-          <li><a href="#" class="nav-link px-2 text-white">About Us</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Contact Us</a></li>
+          <li><a href="/aboutus" class="nav-link px-2 text-white">About Us</a></li>
+          <li><a href="/contactus" class="nav-link px-2 text-white">Contact Us</a></li>
 
         </ul>
 
 
         </form>
 
-        <div class="text-end">
+        <div class="text-end ms-5">
           {% if user.is_authenticated %}
           <a href="/logout" class="btn btn-danger">LogOut</a>
           <a href="/products/mycart" class="btn btn-outline-light text-white fs-4">
@@ -78,13 +82,32 @@
             </i> </a>
           {% else %}
 
-          <a href="/login" class="btn btn-outline-warning">Login</a>
-          <a href="/register" class="btn btn-success">SignUp</a>
+          <form class="form" method="get" id="removeData">
+            {{product_filter.form}}
+             
+            <button class="btn btn-success" type="submit">
+                <i class="fas fa-search fs-2 text-white"></i>
+            
+            </button>
+    
+        </form>
+        <script>
+          let x = document.getElementById("removeData")
+          //  x.getElementsByTagName('label').textContent = ""
+          
+          console.log(x.textContent)
+          </script>
+          <a href="/login" class="btn btn-light">Login</a>
+          <a href="/register" class="btn btn-light">SignUp</a>
 
 
 
           {% endif %}
-
+          <!-- <button class="btn btn-light" type="submit">
+            <i class="fas fa-search fs-4 text-dark"></i>
+        
+        </button> -->
+        
 
 
 
@@ -93,12 +116,14 @@
       </div>
     </div>
   </header>
+  
 
   <div class="main">
     {% block main_content %}
     {% endblock %}
 
   </div>
+  
 
   <!-- footer start -->
 
@@ -119,7 +144,7 @@
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="{%url aboutus%}" class="nav-link p-0 text-muted">About</a></li>
           </ul>
         </div>
 

@@ -72,20 +72,21 @@
       </div>
 
     
-    <div class="offset-md-2 col-md-6 shadow">
+    <div class="offset-md-2 col-md-6 shadow p-3">
       <div class="maindiv">
 
       
       
       <div style="float: right;" class="d-flex1">
-      <h2 class="text-muted text-center">{{products.product_name}}</h2>
-      <p class="text-muted text-center">{{products.authorname}}</p>
-      <p class="text-muted text-center ">
-        {{products.description}} </p>
+      <h2 class="text-center">{{products.product_name}}</h2>
+      <p class="text-center fw-bold">{{products.authorname}}</p>
       <p class="text-center"><b>Category:{{products.category}}</b></p>
+      <p class="text-center  ">
+        {{products.description}} </p>
+      
       <hr>
-      <h3 class="text-center">Rs.{{products.product_price}}</h3>
-      <h3 class="text-center">Available Quantity: {{products.stock}}</h3>
+      <h3 class="text-center fs-5">Rs.{{products.product_price}}</h3>
+      <h3 class="text-center fs-5">Available Quantity: {{products.stock}}</h3>
 
      
         </div>
@@ -101,11 +102,9 @@
       </div> -->
     
       </div>
-      <div style="margin-left: 25px;" class="readme">
-        <a style="float: left;" href="/{{products.upload_pdf}}" target="_pdf" class="btn btn-success">Read Now</a>
-      </div>
       
-      <div style="float: right; margin-right: 25px;" class="read">
+      
+      <div class="container d-flex justify-content-center" class="read">
         <a href="/products/add_to_cart/{{products.id}}"class="btn btn-success">Add To Cart</a>
       </div>
       </div>

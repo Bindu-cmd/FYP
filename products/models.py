@@ -29,6 +29,10 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
 
+    @staticmethod
+    def get_all_products_by_id():
+        return Product.objects.all()
+
 
 class Cart(models.Model):
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
@@ -53,11 +57,7 @@ class Order(models.Model):
     address=models.CharField(max_length=200)
     created_date=models.DateTimeField(auto_now_add=True)
 
-class Language(models.Model):
-    languagename=models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.languagename
     
 
 class BookNow(models.Model):
@@ -66,7 +66,7 @@ class BookNow(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     publisher=models.CharField(max_length=200, blank=True)
     pages=models.IntegerField()
-    Language=models.ForeignKey(Language, on_delete=models.CASCADE)
+   
     description=models.TextField()
     publish_year=models.IntegerField()
     cover_image=models.ImageField(upload_to='static/pdfimage',null=True)
@@ -76,6 +76,13 @@ class BookNow(models.Model):
     def __str__(self):
         return self.bookname 
     
+class Myrating(models.Model):
+    user    = models.ForeignKey(User,on_delete=models.CASCADE)
+    places  = models.ForeignKey(Product,on_delete=models.CASCADE)
+    rating  = models.IntegerField(default=1,validators=[MaxValueValidator(5),MinValueValidator(0)])
+    
+    def __str__(self):
+        return str(self.user)
    
 
 

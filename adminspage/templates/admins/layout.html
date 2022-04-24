@@ -98,10 +98,19 @@
   </div>
 </div>
               </li>
-              <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-              <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
-              <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
-              <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+               <li> <a href="/" class="nav-link px-2 text-secondary fw-bold">Home</a> </li>
+               <li> <a href="/allproducts" class="nav-link px-2 text-secondary fw-bold">Products</a> </li>
+               <li> <a href="categories" class="nav-link px-2 text-secondary fw-bold">Category</a>
+                 <ul class="ul_list">
+                {% for cat in categories %}
+                <li><a href="category_to_post/{{cat.id}}">{{cat.category_name}}</a></li>
+                {% endfor %}
+              </ul></li>
+
+               <li> <a href="/aboutus" class="nav-link px-2 text-secondary fw-bold">About us</a> </li>
+               <li> <a href="/contactus" class="nav-link px-2 text-secondary fw-bold">Contact us</a> </li>
+
+      
             </ul>
     
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -114,8 +123,8 @@
               </a>
               <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                 <li><a class="dropdown-item" href="#">{{request.user.username}}</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <!-- <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li> -->
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="/logout">Sign out</a></li>
               </ul>

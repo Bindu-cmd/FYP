@@ -89,7 +89,7 @@
 <!-- card start -->
 <div class="container-fluid">
   <h1 class="text-center mt-5">Latest Arrivals</h1>
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-2">
       {% for product in products %}
         <div class="col">
           <div class="card shadow-lg">
@@ -102,6 +102,9 @@
               <a href="/productdetails/{{product.id}}" class="btn btn-success">View Details
 
               </a>
+              <!-- <a href="{% url 'rating' product.id%}" class="btn btn-success">Give Rating 
+
+              </a> -->
               
             </div>
           </div>

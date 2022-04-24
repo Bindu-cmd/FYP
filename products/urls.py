@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns=[
-    path('',views.index),
+    path('',views.index, name="index"),
     path('test/',views.testFunc),
     path('addproduct/',views.post_product),
     path('addcategory/',views.post_Category),
@@ -20,6 +20,7 @@ urlpatterns=[
     path('allorder',views.all_order),
     path('addpdf/',views.Book_Pdf),
     path('viewpdf/',views.View_Pdf),
+    path('<int:place_id>/', views.rating, name='rating'),
     
-
+    
 ]

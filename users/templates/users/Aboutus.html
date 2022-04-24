@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>About Us</title>
+    <style>
+      *{
+          margin: none;
+          padding:none;
+      }
+    
+
+img{
+   max-width: 400px;
+}
+div>p{
+text-align: justify;
+margin-top: 1rem;
+font-size: 0.8rem;
+}
+      
+  </style>
+</head>
+<body>
+  {% extends 'layout.html' %}
+
+  {% block main_content %}
+
+
+
+<!-- About us -->
+
+<div class="container mt-4">
+    <div class="container d-flex flex-wrap flex-row justify-content-around align-items-center gap-5">
+        <img src="/static/images/book2.jpg" alt="">
+        <div class="col-5 d-flex flex-wrap flex-column justify-content-center align-items-center">
+            <h1 class="fs-2 fw-bold">WELCOME TO BOOK BAZZAR</h1>
+            <p class="text-wrap">Book Bazar is an online bookstore physically based in kathmandu, Nepal.bookbazar.com is a definitive online shopping goal for Nepal offering totally bother free shopping background through secure and trusted portals. We offer you in popular and unique shopping experience with all your most loved brands and that's just the beginning. Customers never again need to hold up in traffic, expect rebate and invest hours searching for the products and services that they need. All it takes is a couple of snaps and a couple of moments to find the product and to put order(s) at bookbazar.
+            </p>
+        </div>
+
+
+        <!-- Our GOAL -->
+        <div class="col-4 d-flex flex-wrap flex-column justify-content-center align-items-start ">
+            <h2 class="fs-5 fw-bold">OUR GOAL</h2>
+            <p class="text-wrap">At Books Bazar, we embody everything you love about books. Our mission is to share the power of books and we connect books with people by making discovering and buying books easy, entertaining, informative, and socially engaging. Discover new books, browse and buy books online at the lowest everyday prices.It is about helping to foster the love of reading and supporting new authors and fellow-readers from all corners of the globe because we believe that books have the power to transform the world around us.
+            </p>
+        </div>
+
+
+
+ <!-- our Message -->
+        <div class="col-4 d-flex flex-wrap flex-column justify-content-center align-items-start ">
+            <h2 class="fs-5 fw-bold">OUR MESSAGE</h2>
+            <p class="text-wrap">For our customers, we have tried to make Books Bazar the ultimate destination for book lovers by offering an array of book related content. With so many titles, it is vital to give customers an easy way to find precisely the books they are looking for.
+            </p>
+        </div>
+
+     
+        
+    </div>
+
+</div>
+{% endblock main_content %}
+
+
+
+
+
+
+
+      <!-- Footer -->
+
+     <div class="container-fluid mt-5">
+    <footer class="py-5 bg-dark container-section">
+      <div class="row">
+        <div class="col-1" style="margin-left: 50px; width: 300px;">
+          <h3 class="text-white text-center" style="font-size: 20px;">Book Bazar</h3>
+          <p style="position: relative; color: white; text-align: center;">Book Bazar is an online bookstore, physically
+            based in kathmandu,Nepal. at bookbazar, you can browse and buy books online at the lowest everyday prices.
+            start reading them immediately and conveinetly from within our website. </p>
+        </div>
+
+        <div class="col-2" style="margin-left: 200px;">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+          </ul>
+        </div>
+
+
+        <div style="margin-left:140px;margin-right:25px;" class="col-4 offset-1">
+          <form>
+            <h5>Subscribe to our newsletter</h5>
+            <p>Monthly digest of whats new and exciting from us.</p>
+            <div class="d-flex w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between p-4 my-4 border-top">
+        <p style="color:white;">&copy; 2022 Book Bazar, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-dark text-white fs-2" href="#"><i class="fab fa-facebook"></i></a></li>
+          <li class="ms-3"><a class="link-dark text-white fs-2" href="#"><i class="fab fa-youtube"></i></a></li>
+          <li class="ms-3"><a class="link-dark text-white fs-2" href="#"><i class="fab fa-instagram"></i></a></li>
+          <li class="ms-3"><a class="link-dark text-white fs-2" href="#"><i class="fab fa-twitter"></i></a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
